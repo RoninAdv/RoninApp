@@ -1,38 +1,121 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery.easing-1.3.js"></script>
+        <script type="text/javascript" src="js/jquery.iosslider.min.js"></script>
+         <script type="text/javascript">
+			$(document).ready(function() {
+				
+				$('.app').iosSlider({
+					desktopClickDrag: true,
+					snapToChildren: true,
+				});
+				$('.box').click(function(){
+					$('#box1').removeClass('active');
+					var ID = $(this).attr('data-box');
+					var firstRun = $(".content[data-focus='1']").length;
+					if( firstRun == 0){
+						$('#content1').fadeOut('fast', function(){
+							$('#content'+ID).fadeIn('fast');
+						});
+					}
+					else{
+						$(".content[data-focus='1']").fadeOut('fast', function(){
+							$('#content'+ID).fadeIn('fast');
+						});
+					}
+					$(".content[data-focus='1']").attr('data-focus','0');
+					$('#content'+ID).attr('data-focus','1');
+				});
+				
+			});
+		</script>
+        <title>RoninApp</title>
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
+    	<div class="app">
+    		<div class="slider">
+    			<div id="slide1" class="slide">
+	    			<div class="slide1-left">
+	    				<div id="box1" class="box active" data-box="1">
+	    					<h3>nov 02</h3>
+	    					<h1>hmmm, pinteresting (the adjective, not the verb)...</h1>
+	    					<p>We Ronin (re:wave man) are perpetually curious, forward...<br /><strong>MORE</strong></p>
+	    				</div>
+	    				<div id="box2" class="box" data-box="2">
+	    					<h3>nov 11</h3>
+	    					<h1>A Ronin Party</h1>
+	    					<p>November 2nd, the Miami Ronin office gathered after work...<br /><strong>MORE</strong></p>
+	    				</div>
+	    				<div id="box3" class="box" data-box="3">
+	    					<h3>nov 07</h3>
+	    					<h1>Once a Ronin, always a Ronin</h1>
+	    					<p>About four years ago I made one of the most difficult dec...<br /><strong>MORE</strong></p>
+	    				</div>
+	    				<div id="box4" class="box" data-box="4">
+	    					<h3>oct 26</h3>
+	    					<h1>Change is a coming</h1>
+	    					<p>Some people absolutely shudder at the thought of change...<br /><strong>MORE</strong></p>
+	    				</div>
+	    			</div>
+	    			<div class="slide1-right">
+	    				<div id="content1" class="content" data-focus="0">
+	    					<h1>hmmm, pinteresting (the adjective, not the verb)...</h1>
+	    					<h3>nov 02</h3>
+	    					<h4>by Marisa Bunney</h4>
+	    					<img src="img/slide1/pinterest.png" width="460px" />
+	    					<p>We Ronin (re: wave man) are perpetually curious, forward-thinking students of the world. Ever embracing the changing climate of the industry, we continue to immerse ourselves in the market, exploring new communication platforms, creative exercise, and consumer experience. This month, the spotlight's on Pinterest and how to use the virtual pin board to tell your brand story. Our first task was to identify a brand we feel uses Pinterest exceptionally well and analyze their strategy. I chose to look at the fashion industry (shocker). Read on...</p><p>Being a visually driven platform, Pinterest is seemingly a no-brainer for fashion brands. But, as with any form of advertising, there is room for error. For me as a consumer, the key to communicating with your target via social media is balance between astutely showcasing your product and demonstrating how you see the world. Enter Michael Kors. As a brand, MK is a voice of approachable (and at times, unapproachable) couture, ranging from $250 watches to $3000 handbags to $10,000 dresses to $140 shoes. The beauty of such versatility in luxury fashion is that you don't have to be a millionaire to subscribe to the brand. Anyway, I digress (story of my life).</p><p>Back to Pinterest... MK's account uses branded boards to highlight seasonal collections, Michael's Milestones (everyone loves alliteration), even a #MKFNO (Michael Kors Fashion Night Out) campaign. Which I love to drool over. But, the clincher for me is the boards that speak to consumers as people, not just MK groupies. Examples: Style Tips, Travel Diary, On Broadway, Eat Up. I believe in employees as brand ambassadors. A certain brand fosters a certain type of person - having non-branded boards allows users to relate to MK and its people in a similar way you would a friend. I will gladly give my loyalty to a brand I can relate to in passion and charisma over a brand who has a similarly worthy product with lackluster personality.</p><p>For me, it's all about relatability, and in that regard, Michael Kors is a Pinterest rockstar.</p>
+	    				</div>
+	    				<div id="content2" class="content" data-focus="0">
+	    					<h1>A Ronin Party</h1>
+	    					<h3>nov 11</h3>
+	    					<h4>by Lisa Migliaccio, Account Coordinator</h4>
+	    					<img src="img/slide1/img_1049_500x333.jpg" width="460px" />
+	    					<p>November 2nd, the Miami Ronin office gathered after work to celebrate a very special birthday for President Karen Ableman, Armed with more food than you can imagine, family & friends, and 2 hula hoops, we were ready to party. Our work days are busy and sometimes very stressful, but one thing is certain, we all know how to have fun and celebrate both our business, and the people who make up Ronin.</p>
+	    				</div>
+	    				<div id="content3" class="content" data-focus="0">
+	    					<h1>Once a Ronin, always a Ronin</h1>
+	    					<h3>nov 07</h3>
+	    					<h4>by Yessy Alonso</h4>
+	    					<p>About four years ago I made one of the most difficult decisions of my life. To most it probably would have been the sort of decision that required minimal thought and was a natural transition or stepping stone in life, but for me it was much more than that, it was a choice that I felt at the time would change part of who I was, who I thought I always wanted to be.</p><p>After having studied advertising for four years, earning a degree and being in the business for five years, I decided that it was time for a career change. There were so many things that I loved about advertising, Ronin and the people that I worked with, who had inevitable become some of my closest friends. But, at the "end of the day", I felt like something was missing; like the reasons why I chose this career, which I had always been so passionate about, were gone. And so, much like a relationship, although I loved it, I felt it was time to walk away and move on; to see what else life had in store for me, and to find something that was, perhaps, "better".</p><p>I decided that if I was going to make a change, it might as well have been a big one. So, after lots of careful consideration, I chose a career that was as different as advertising as headline and body copy clients. After all, if you've dated the same "type" time and time again and it hasn't worked it's probably time to give the person you never thought you'd end up with a try. Like they say, sometimes "opposites attract".  And so, I chose to give the commercial insurance business a shot. I know, I know… sounds boring and typically, when you think of an insurance sales person, you think of a stuffy, old guy with a suite and tie, who has the personality of a rock, but I was determined to give it a chance and try something new.</p><p>After doing just that, going back to school, earning yet another degree, so to speak, and giving the insurance business what I felt was a fair chance (four years), I realized that I had made a mistake and I missed my "ex". The insurance business just didn't have the qualities that I was looking for in a life-long partner. It lacked excitement, creativity and passion, things that I admired about my last relationship; and most importantly, no matter how hard I tried, I just didn't love it as much as I loved advertising. So, when advertising came knocking on my door again, I accepted it with open arms. I was a bit skeptical, because there was no guarantee that it work this time around, or that the love would be the same, but it felt right and so, I took a leap of faith and jumped.</p><p>I have been back in the business and, more importantly, at Ronin for only four months and from the moment that I stepped foot back into these four walls, I realized that this is where I belong. I feel at home and at peace here, surrounded by my colleagues, my friends, and the work that inspires me everyday. Sure, just like with any relationship that has been given a second chance, it's been a challenge. It's only natural that people change and grow in four years; that things you once had in common are now differences; and that sometimes even the love has changed. But at the "end of the day", love is love, passion is passion and perhaps, what I've realized the most, is that once a Ronin, always a Ronin.</p>
+	    				</div>
+	    				<div id="content4" class="content" data-focus="0">
+	    					<h1>Change is a coming</h1>
+	    					<h3>oct 25</h3>
+	    					<h4>by Tuesday Saumell, chief financial officer</h4>
+	    					<p>Some people absolutely shudder at the thought of change.  After all, it's easy to get complacent in a routine that you're comfortable with…like your work processes…maybe you've become a master at your job, or the fastest at that computer program.  Perhaps it's simply because it's hard to break old habits.  It's human nature.   But to others…we get bored.  We need stimulation!  We need to find a better solution!  And change can bring this.</p><p>Think of all the new technology  that has entered our lives in the last few years!  Change brings us new learning…new inspiration.  No matter what your skill set is.  It allows us to rethink what we currently do. How can we do it better?  More efficiently?  More effectively!  More engaging!  Our industry is ever-changing, and we recognize the dire need to keep evolving and improving to keep up with current trends and methods of advertising.  Social media and apps weren't even around a few years ago!</p><p>This applies not only to new advertising formats, but the way we conduct our day-to-day business.  Here at Ronin, we use a specialized software designed for Advertising Agencies.  It ties all of our production, media, billing, reporting and financial processes together in one system.  It is indispensable for us and for our clients.  I've worked on a few of these software systems over the years, and this one is great!  But it's changing.  And I can't wait!  Your first reaction may be "that's Accounting software…it doesn't apply to me".  But that's changing , too!</p><p>The previews are very exciting!  Not only is the look and feel more flashy, but it has enhancements to improve our user experience, flow of work, and delivery of information.  And that's what it's all about.  Integration and useful information.  Every day.  For everyone!</p><p>I've always said that the thing I love best about this business is how so many diverse people, with unique skill sets, amazingly different personalities, cultures, and interests can work together to create a powerful brand or campaign for our clients.  It's this common thread..this unified effort to work toward the same successful goal.  This same concept applies to our own internal business methods.  And this will ultimately be successful because we accept the fact that sometimes, things change.</p><p>We will be better!  We will be faster!  We will work smarter! Embrace it!  It's part of Ronin 2.0.  Change is a comin'…and it's good!</p>
+	    				</div>
+	    			</div>
+    			</div>
+    			<div id="slide2" class="slide">
+	    			<div class="slide2-header">
+	    				<img src="img/slide2/heroimagew_black.jpg" width="768px" />
+	    			</div>
+	    			<div class="slide2-content">
+	    				<h1>Nothing motivates a Ronin like a photographic challenge</h1>
+	    				<h3>nov 03</h3>
+	    				<p>Nothing motivates a Ronin like a photographic challenge. When our client, The Residences at W Fort Lauderdale, was in need of a new website to showcase their amazing property on the fabulous sugar-sand coastline of Fort Lauderdale, we jumped at the chance. Nothing, not even Hurricane Irene, could prevent us from providing our client with stunning, attention-grabbing photographs. This photo shoot was so hot, we set off the hotel's fire alarm. Seriously.</p><p>Partnering with Cwenar Photography, each image is meticulously planned, photographed and produced. Our NYC fashion stylist brought wardrobe samples from New York, Milan and Paris. The jewelry is one-of-kind, handmade designs. And we cast models from across the globe to represent the trendsetting lifestyle at The Residences at the W Fort Lauderdale -- voted Trip Advisor's Trendiest Hotel in 2011.</p><p>Each glorious image emphasizes something truly spectacular; the outrageous ocean views, the frenetic energy of the Living Room club scene, the reflective retreat that each residence offers.</p><p>Careful planning allows us to shoot the backgrounds at the optimum times, while shooting our models in the studio to light them for amazing editorial appeal. We merge them together through proprietary retouching. But like The Residences at W Fort Lauderdale, we can't give away all our secrets. You'll have to discover for yourself how we got this good.</p>
+	    			</div>
+	    			
+    			</div>
+    			<div id="slide3" class="slide"></div>
+    			<div id="slide4" class="slide"></div>
+    		</div>
+    	</div>
+    
+    
+    
+    
+    
+    
+    
+    
+       
         <script type="text/javascript" src="cordova-2.2.0.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
