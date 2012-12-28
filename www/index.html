@@ -7,13 +7,43 @@
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/jquery.easing-1.3.js"></script>
-        <script type="text/javascript" src="js/jquery.iosslider.min.js"></script>
+        <script type="text/javascript" src="js/jquery.iosslider.js"></script>
+        <script type="text/javascript" src="js/jquery.iosslider-vertical.js"></script>
+        <script type="text/javascript" src="js/jQuery.bubbletip-1.0.6.js"></script>
+        <link href="js/bubbletip/bubbletip.css" rel="stylesheet" type="text/css" />
          <script type="text/javascript">
 			$(document).ready(function() {
 				
 				$('.app').iosSlider({
 					desktopClickDrag: true,
 					snapToChildren: true,
+					scrollbar: true,
+					scrollbarLocation: 'bottom',
+					scrollbarHeight: '6px',
+					scrollbarBorder: '1px solid #FFF',
+					scrollbarMargin: '0 30px 16px 30px',
+					scrollbarOpacity: '0.75',
+					scrollbarBackground: '#333',
+					scrollbarDrag: true
+				});
+				$('.app').click(function(){
+					$('.app').iosSlider({ scrollbarDrag: true });
+				});
+				/*function sliderLock(){
+					
+					$('.app').iosSlider('lock');
+				}
+				function sliderUnlock(args){
+					var currentSlideNumber = args.currentSlideNumber;
+					if(currentSlideNumber == 1){
+						$('.app').iosSlider('unlock');
+						
+					}
+				}*/
+				$('.vertical').iosSliderVert({
+					desktopClickDrag: true,
+					snapToChildren: true,
+					scrollbar: false,
 				});
 				$('.box').click(function(){
 					$('#box1').removeClass('active');
@@ -32,6 +62,26 @@
 					$(".content[data-focus='1']").attr('data-focus','0');
 					$('#content'+ID).attr('data-focus','1');
 				});
+				$('.slide5-people').click(function(){
+					$('.pop').hide();
+					var popID = $(this).attr('data-people');
+					if( popID == 1 || popID == 2 || popID == 3){
+						$('#info2').slideUp('fast');
+						$('#info3').slideUp('fast');
+						$('#info1').slideDown('slow');						
+					}
+					if( popID == 4 || popID == 5 || popID == 6){
+						$('#info1').slideUp('fast');
+						$('#info3').slideUp('fast');
+						$('#info2').slideDown('slow');
+					}
+					if( popID == 7 || popID == 8 || popID == 9){
+						$('#info1').slideUp('fast');
+						$('#info2').slideUp('fast');
+						$('#info3').slideDown('slow');
+					}
+					$('#pop'+popID).show();
+				});
 				
 			});
 		</script>
@@ -40,6 +90,7 @@
     <body>
     	<div class="app">
     		<div class="slider">
+    			
     			<div id="slide1" class="slide">
 	    			<div class="slide1-left">
 	    				<div id="box1" class="box active" data-box="1">
@@ -103,8 +154,106 @@
 	    			</div>
 	    			
     			</div>
-    			<div id="slide3" class="slide"></div>
-    			<div id="slide4" class="slide"></div>
+    			<div id="slide3" class="slide">
+    				<div class="vertical">
+    					<div class="slider">
+    						<div id="vertical-slide1" class="slide">
+    							<img src="img/slide3/hyatt.png" width="768px" />
+    						</div>
+    						<div id="vertical-slide2" class="slide">
+	    						<img src="img/slide3/hyatt2.png" width="768px" />
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    			<div id="slide4" class="slide">
+	    			<div class="slide4-pledge">
+	    				<h1>the last word</h1>
+	    				<p>As manager of five major expressways in Miami-Dade County, MDX is obsessed with keeping people safe on their roadways. As distracted driving has become one of the top causes of crashes today, MDX is stepping into the forefront of the national push to make it unlawful to text and drive. Working with our client, Ronin has created a short film that will be distributed via viral marketing, social media and public relations. Designed to hit consumers right between the eyes with what can be left behind</p><p>Visit www.textthelastword.com and take the pledge!</p>
+	    				<iframe width="728" height="392" src="http://www.youtube.com/embed/0DH1JGlYOL0" frameborder="0" allowfullscreen></iframe>
+	    			</div>
+    			</div>
+    			<div id="slide5" class="slide">
+    				<div class="slide5-container">
+    					<div id="people1" class="slide5-people" data-people="1">
+	    					<img class="trigger" src="img/slide5/biophoto_karen.jpg">
+	    					<h2>President/Partner</h2>
+	    					<h1>Karen Ableman</h1>
+	    					
+    					</div>
+    					<div id="people2" class="slide5-people" data-people="2">
+	    					<img class="trigger" src="img/slide5/swish10-thumb.jpg">
+	    					<h2>Chief Creative Officer/Partner</h2>
+	    					<h1>John Swisher</h1>
+	    		
+    					</div>
+    					<div id="people3" class="slide5-people" data-people="3">
+	    					<img class="trigger" src="img/slide5/biophoto_tuesdayb.jpg">
+	    					<h2>Chief Financial Officer</h2>
+	    					<h1>Tuesday Saumell</h1>
+    					</div>
+    					<div style="clear:both;"></div>
+    					<div id="info1" data-shown="0">
+    						<p id="pop1" class="pop">As the President and one of the founding partners, Karen brings more than 20 years of experience to Ronin Advertising Group. She has extensive experience leading many national and regional accounts such as: Miami-Dade Expressway Authority, The Fischler School of Education and Human Services, Greater Ft. Lauderdale and Sarasota Convention and Visitors Bureaus, Four Seasons Hotel & Residences - Miami, Millennium Tower San Francisco, W Fort Lauderdale, Canyon Ranch, The University of Miami Athletics and Business School, Prime Outlets, Guarana Soft Drink, Island National Bank, Southeast Regional Toyota, PGA.com, The HealthSun HMO, The Related Group of Florida and Mt. Carmel Hospital. </p>
+    						<p id="pop2" class="pop">One of the founding partners of Ronin Advertising Group, John has over 20 years of experience in the ad world. He has created award winning campaigns for clients such as Millennium Tower San Francisco, Prime Outlets, Mellon Bank, Checkers/Rally's, UPMC Healthcare Systems, the Pittsburgh Pirates, Pittsburgh Zoo & PPG Aquarium, Family Health Council, Health America HMO, Proctor and Gamble, Long John Silvers, Sarasota Convention and Visitors Bureau, Sarasota Memorial Healthcare System, Rite Aid Pharmacy, Four Seasons Hotel & Residences - Miami, University of Miami Athletics, True Value Hardware, Sears, The Overtown Youth Center in Miami and The Pittsburgh Public Theater. </p>
+    						<p id="pop3" class="pop">A hyper-organized planner and financial problem solver, Tuesday Saumell has worked in accounting for more than 25 years. Starting at advertising agencies such as Beber Silverstein, GS&B Advertising, del Rivero Messianu, MARC USA/Miami and MARCA Hispanic. Along the way, she formed lasting relationships with the founding partners of Ronin, and became CFO in 2007.</p>
+
+
+    					</div>
+    					<div id="people4" class="slide5-people" data-people="4">
+	    					<img class="trigger" src="img/slide5/stacyb.jpg">
+	    					<h2>Director of Brand Management</h2>
+	    					<h1>Stacy Bick</h1>
+	    				
+    					</div>
+    					<div id="people6" class="slide5-people" data-people="5">
+	    					<img class="trigger" src="img/slide5/bianca.jpg">
+	    					<h2>Creative Strategist</h2>
+	    					<h1>Bianca Zeiler</h1>
+	    					
+    					</div>
+    					<div id="people7" class="slide5-people"  data-people="6">
+	    					<img class="trigger" src="img/slide5/bernicethumb.jpg">
+	    					<h2>Creative Director</h2>
+	    					<h1>Bernice Bamburak</h1>
+	    					
+    					</div>
+    					<div style="clear:both;"></div>
+    					<div id="info2" data-shown="0">
+    						<p id="pop4" class="pop">Born and raised in the Midwest, Stacy is our All-American Director of Brand Management. With a Bachelors from Ohio University, and a Masters Degree in Sports Administration, Stacy set off on a fast track career in sports marketing eighteen years ago. She began as a marketing manager for FANSONLY (CSTV) and then as Assistant Director of Marketing for the University of Miami Athletic Department. When we first met her, Stacy was our client. But lucky for us, she was so affected by our work she quit her job and came to work at Ronin. </p>
+    						<p id="pop5" class="pop">A world traveler fluent in four languages, Bianca brings a global and well-rounded perspective to the Ronin team. Having worked in every facet of the advertising world, from account service to account planning to copywriting, this strategic leader draws from a wealth of knowledge to build solid strategy for our clients, deftly bring them to market, and relentlessly guide them to success.  </p>
+    						<p id="pop6" class="pop">Few people are as knowledgeable and passionate about advertising as Bernice -- clients, customers and co-workers are all winners thanks to her hard-driving, team-playing, Pittsburgh-born-and-bred work ethic. After cutting her teeth at MARC Advertising, Bernice headed west for a great adventure at DRGM Advertising. Now she brings her talent, high energy, fresh perspective and stellar production background to a wide range of accounts at Ronin.</p>
+
+
+    					</div>
+    					
+    					<div id="people8" class="slide5-people"  data-people="7">
+	    					<img class="trigger" src="img/slide5/biophoto_maria.jpg">
+	    					<h2>Creative Director</h2>
+	    					<h1>Maria Venegad</h1>
+	    					
+    					</div>
+    					<div id="people9" class="slide5-people"  data-people="8">
+	    					<img class="trigger" src="img/slide5/biophoto_steveb.jpg">
+	    					<h2>Creative Director</h2>
+	    					<h1>Steve Rodich</h1>
+	    					
+    					</div>
+    					<div id="people10" class="slide5-people"  data-people="9">
+	    					<img class="trigger" src="img/slide5/marissa.jpg">
+	    					<h2>Immersive Journalist</h2>
+	    					<h1>Marisa Bunney</h1>
+	    				</div>
+	    				<div style="clear:both;"></div>
+    					<div id="info3" data-shown="0">
+    						<p id="pop7" class="pop">Fabulous and full of life, Maria exudes elegance and creativity at every turn. A passionate, talented designer with over 15 years experience, she is the consummate believer that every project offers a new opportunity to learn and be inspired. This spirit of curiosity and innovation drives Maria to create not just great work, but works of art for all our clients. </p>
+    						<p id="pop8" class="pop">A visual storyteller who thrives on creative collaboration, Steve helps his clients connect emotionally with consumers on a daily basis. His strong design background and passion for the industry make him an invaluable resource for the creative team. Skilled in every facet of the field, from print to broadcast to interactive, he is never content to stop learning and always pushes himself and his team to seek out the right solution for the task at hand.  </p>
+    						<p id="pop9" class="pop">Overflowing with determination & charisma and skilled in the art of the written word, Marisa is our Immersive Journalist. Trained in many mediums, from journalism to social media to traditional copywriting, Marisa tells stories that connect Ronin's clients to their targets and the cities around them. As the author of our interactive magazines, apps, and blogs, she writes about everything from food and wine to film, the arts, architecture, luxury living and more in destinations like San Francisco, Napa Valley, and Boston. </p>
+
+
+    					</div>
+    				</div>
+    			</div>
     		</div>
     	</div>
     
