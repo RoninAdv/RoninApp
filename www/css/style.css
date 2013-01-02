@@ -203,3 +203,36 @@ br{
 .pop{
 	display:none;
 }
+#slide0_5{
+	background:#333;
+}
+.chapter{
+	background:#333;
+	padding:20px;
+	width:44.9%;
+	float:left;	
+	top:-3px;
+	position: relative;
+	color:#FFF !important;
+	
+}
+.chapter h1, .chapter h2{
+	font-family: 'comfortaalight';
+}
+.chapter h2{
+	letter-spacing: 5px;
+}
+.chapter a{
+	color:#FFF;
+	text-decoration: none;
+	font-weight:bold;
+	text-decoration:uppercase;
+}
+.chapter p{
+	padding-bottom:20px;
+	border-bottom:1px dashed #FFF;
+}
+#select3{
+	position: relative;
+	top:-90px;
+}

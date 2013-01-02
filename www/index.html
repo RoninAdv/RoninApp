@@ -82,7 +82,10 @@
 					}
 					$('#pop'+popID).show();
 				});
-				
+				$('.chapter').click(function(){
+					var chapterID = $(this).attr('data-page');
+					$('.app').iosSlider('goToSlide', chapterID);
+				});
 			});
 		</script>
         <title>RoninApp</title>
@@ -90,7 +93,44 @@
     <body>
     	<div class="app">
     		<div class="slider">
-    			
+    			<div id="slide0" class="slide">
+    				<img src="img/slide0.jpg" width="768px" />
+    			</div>
+    			<div id="slide0_5" class="slide">
+    				<div id="toc-title">
+    					<img src="img/slideToC/toc-header.jpg" width="768px" />
+    				</div>
+    				<div id="select" class="chapter" data-page="3">
+    					<h2>03</h2>
+    					<h1>Gaining Momentum</h1>
+    					<p>Our most interesting recent news. See the last couple months events and articles relating to Ronin.</p>
+    				
+    				</div>
+    				<div id="select2" class="chapter" data-page="4">
+    					<h2>04</h2>
+    					<h1>The Inside of Fort Lauderdale</h1>
+    					<p>Nothing motivates a Ronin like a photographic challenge. When our client, The Residences at W Fort Lauderdale, was in need of a new website to showcase their amazing property on the fabulous sugar-sand coastline of Fort Lauderdale, we jumped at the chance.</p>
+    					
+    				</div>
+    				<div id="select3" class="chapter" data-page="5">
+    					<img src="img/slideToC/05.png" width="350px" />
+    					<h2>05</h2>
+    					<h1>The Feeling Only Gets Better Everytime You Return</h1>
+    					<p>Purchasing a luxury fractional vacation home on one of the top three beaches in the world is an appealing proposition. Especially to people who live in the Northeast and Midwest. Our print and online campaign for Hyatt Siesta Key Beach Resort was developed with this in mind. Take a peek, we're pretty sure you'll want to go.</p>
+    					<img src="img/slideToC/08.jpg" width="350px" />
+    				</div>
+    				<div id="select4" class="chapter" data-page="6">
+    					<img src="img/slideToC/07.png" width="350px" />
+    					<h2>07</h2>
+    					<h1>The Last Word</h1>
+    					<p>As manager of five major expressways in Miami-Dade County, MDX is obsessed with keeping people safe on their roadways. As distracted driving has become one of the top causes of crashes today, MDX is stepping into the forefront of the national push to make it unlawful to text and drive. </p>
+    				</div>
+    				<div id="select5" class="chapter" data-page="7">
+    					<h2>08</h2>
+    					<h1>Our People</h1>
+    					<p>Get introduced to the people at Ronin. Select people and learn their backstory. </p>
+    				</div>
+    			</div>
     			<div id="slide1" class="slide">
 	    			<div class="slide1-left">
 	    				<div id="box1" class="box active" data-box="1">
